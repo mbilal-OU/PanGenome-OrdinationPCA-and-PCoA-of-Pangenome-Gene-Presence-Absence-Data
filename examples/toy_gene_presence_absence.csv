@@ -1,0 +1,49 @@
+Gene,Non-unique Gene name,Annotation,No. isolates,No. sequences,Avg sequences per isolate,Genome Fragment,Min group size nuc,Max group size nuc,Avg group size nuc,Genome_1,Genome_2,Genome_3,Genome_4,Genome_5,Genome_6,Genome_7,Genome_8
+core_gene_001,,core housekeeping protein,8,8,1,NA,300,900,600,core_gene_001_id,core_gene_001_id,core_gene_001_id,core_gene_001_id,core_gene_001_id,core_gene_001_id,core_gene_001_id,core_gene_001_id
+core_gene_002,,core housekeeping protein,8,8,1,NA,300,900,600,core_gene_002_id,core_gene_002_id,core_gene_002_id,core_gene_002_id,core_gene_002_id,core_gene_002_id,core_gene_002_id,core_gene_002_id
+core_gene_003,,core housekeeping protein,8,8,1,NA,300,900,600,core_gene_003_id,core_gene_003_id,core_gene_003_id,core_gene_003_id,core_gene_003_id,core_gene_003_id,core_gene_003_id,core_gene_003_id
+core_gene_004,,core housekeeping protein,8,8,1,NA,300,900,600,core_gene_004_id,core_gene_004_id,core_gene_004_id,core_gene_004_id,core_gene_004_id,core_gene_004_id,core_gene_004_id,core_gene_004_id
+core_gene_005,,core housekeeping protein,8,8,1,NA,300,900,600,core_gene_005_id,core_gene_005_id,core_gene_005_id,core_gene_005_id,core_gene_005_id,core_gene_005_id,core_gene_005_id,core_gene_005_id
+core_gene_006,,core housekeeping protein,8,8,1,NA,300,900,600,core_gene_006_id,core_gene_006_id,core_gene_006_id,core_gene_006_id,core_gene_006_id,core_gene_006_id,core_gene_006_id,core_gene_006_id
+core_gene_007,,core housekeeping protein,8,8,1,NA,300,900,600,core_gene_007_id,core_gene_007_id,core_gene_007_id,core_gene_007_id,core_gene_007_id,core_gene_007_id,core_gene_007_id,core_gene_007_id
+core_gene_008,,core housekeeping protein,8,8,1,NA,300,900,600,core_gene_008_id,core_gene_008_id,core_gene_008_id,core_gene_008_id,core_gene_008_id,core_gene_008_id,core_gene_008_id,core_gene_008_id
+blockA_gene_001,,hypothetical protein,6,6,1,NA,300,900,600,blockA_gene_001_id,blockA_gene_001_id,blockA_gene_001_id,blockA_gene_001_id,blockA_gene_001_id,blockA_gene_001_id,,
+blockA_gene_002,,oxidoreductase,6,6,1,NA,300,900,600,blockA_gene_002_id,blockA_gene_002_id,blockA_gene_002_id,blockA_gene_002_id,blockA_gene_002_id,blockA_gene_002_id,,
+blockA_gene_003,,phage-associated protein,6,6,1,NA,300,900,600,blockA_gene_003_id,blockA_gene_003_id,blockA_gene_003_id,blockA_gene_003_id,blockA_gene_003_id,blockA_gene_003_id,,
+blockA_gene_004,,hypothetical protein,6,6,1,NA,300,900,600,blockA_gene_004_id,blockA_gene_004_id,blockA_gene_004_id,blockA_gene_004_id,blockA_gene_004_id,blockA_gene_004_id,,
+blockA_gene_005,,phage-associated protein,6,6,1,NA,300,900,600,blockA_gene_005_id,blockA_gene_005_id,blockA_gene_005_id,blockA_gene_005_id,blockA_gene_005_id,blockA_gene_005_id,,
+blockA_gene_006,,transporter family protein,6,6,1,NA,300,900,600,blockA_gene_006_id,blockA_gene_006_id,blockA_gene_006_id,blockA_gene_006_id,blockA_gene_006_id,blockA_gene_006_id,,
+blockA_gene_007,,hypothetical protein,6,6,1,NA,300,900,600,blockA_gene_007_id,blockA_gene_007_id,blockA_gene_007_id,blockA_gene_007_id,blockA_gene_007_id,blockA_gene_007_id,,
+blockA_gene_008,,hypothetical protein,6,6,1,NA,300,900,600,blockA_gene_008_id,blockA_gene_008_id,blockA_gene_008_id,blockA_gene_008_id,blockA_gene_008_id,blockA_gene_008_id,,
+blockA_gene_009,,transporter family protein,6,6,1,NA,300,900,600,blockA_gene_009_id,blockA_gene_009_id,blockA_gene_009_id,blockA_gene_009_id,blockA_gene_009_id,blockA_gene_009_id,,
+blockA_gene_010,,transporter family protein,6,6,1,NA,300,900,600,blockA_gene_010_id,blockA_gene_010_id,blockA_gene_010_id,blockA_gene_010_id,blockA_gene_010_id,blockA_gene_010_id,,
+blockA_gene_011,,transporter family protein,6,6,1,NA,300,900,600,blockA_gene_011_id,blockA_gene_011_id,blockA_gene_011_id,blockA_gene_011_id,blockA_gene_011_id,blockA_gene_011_id,,
+blockA_gene_012,,phage-associated protein,6,6,1,NA,300,900,600,blockA_gene_012_id,blockA_gene_012_id,blockA_gene_012_id,blockA_gene_012_id,blockA_gene_012_id,blockA_gene_012_id,,
+blockA_gene_013,,phage-associated protein,6,6,1,NA,300,900,600,blockA_gene_013_id,blockA_gene_013_id,blockA_gene_013_id,blockA_gene_013_id,blockA_gene_013_id,blockA_gene_013_id,,
+blockA_gene_014,,phage-associated protein,6,6,1,NA,300,900,600,blockA_gene_014_id,blockA_gene_014_id,blockA_gene_014_id,blockA_gene_014_id,blockA_gene_014_id,blockA_gene_014_id,,
+blockA_gene_015,,hypothetical protein,6,6,1,NA,300,900,600,blockA_gene_015_id,blockA_gene_015_id,blockA_gene_015_id,blockA_gene_015_id,blockA_gene_015_id,blockA_gene_015_id,,
+blockB_gene_001,,hypothetical protein,2,2,1,NA,300,900,600,,,,,,,blockB_gene_001_id,blockB_gene_001_id
+blockB_gene_002,,integrase family protein,2,2,1,NA,300,900,600,,,,,,,blockB_gene_002_id,blockB_gene_002_id
+blockB_gene_003,,integrase family protein,2,2,1,NA,300,900,600,,,,,,,blockB_gene_003_id,blockB_gene_003_id
+blockB_gene_004,,restriction-modification protein,2,2,1,NA,300,900,600,,,,,,,blockB_gene_004_id,blockB_gene_004_id
+blockB_gene_005,,hypothetical protein,2,2,1,NA,300,900,600,,,,,,,blockB_gene_005_id,blockB_gene_005_id
+shell_gene_001,,membrane protein,4,4,1,NA,300,900,600,shell_gene_001_id,,shell_gene_001_id,,shell_gene_001_id,,shell_gene_001_id,
+shell_gene_002,,hypothetical protein,4,4,1,NA,300,900,600,,,shell_gene_002_id,shell_gene_002_id,,,shell_gene_002_id,shell_gene_002_id
+shell_gene_003,,metabolic enzyme,4,4,1,NA,300,900,600,shell_gene_003_id,shell_gene_003_id,,,shell_gene_003_id,shell_gene_003_id,,
+shell_gene_004,,membrane protein,4,4,1,NA,300,900,600,shell_gene_004_id,,shell_gene_004_id,,shell_gene_004_id,,shell_gene_004_id,
+shell_gene_005,,hypothetical protein,4,4,1,NA,300,900,600,,shell_gene_005_id,,shell_gene_005_id,,shell_gene_005_id,,shell_gene_005_id
+shell_gene_006,,membrane protein,4,4,1,NA,300,900,600,shell_gene_006_id,shell_gene_006_id,,,shell_gene_006_id,shell_gene_006_id,,
+shell_gene_007,,hypothetical protein,4,4,1,NA,300,900,600,,,shell_gene_007_id,shell_gene_007_id,,,shell_gene_007_id,shell_gene_007_id
+shell_gene_008,,metabolic enzyme,4,4,1,NA,300,900,600,shell_gene_008_id,,shell_gene_008_id,,shell_gene_008_id,,shell_gene_008_id,
+shell_gene_009,,membrane protein,4,4,1,NA,300,900,600,,,shell_gene_009_id,shell_gene_009_id,,,shell_gene_009_id,shell_gene_009_id
+shell_gene_010,,membrane protein,4,4,1,NA,300,900,600,,,shell_gene_010_id,shell_gene_010_id,,,shell_gene_010_id,shell_gene_010_id
+shell_gene_011,,hypothetical protein,4,4,1,NA,300,900,600,,,shell_gene_011_id,shell_gene_011_id,,,shell_gene_011_id,shell_gene_011_id
+shell_gene_012,,hypothetical protein,4,4,1,NA,300,900,600,shell_gene_012_id,,shell_gene_012_id,,shell_gene_012_id,,shell_gene_012_id,
+shell_gene_013,,hypothetical protein,4,4,1,NA,300,900,600,,shell_gene_013_id,,shell_gene_013_id,,shell_gene_013_id,,shell_gene_013_id
+shell_gene_014,,hypothetical protein,4,4,1,NA,300,900,600,shell_gene_014_id,,shell_gene_014_id,,shell_gene_014_id,,shell_gene_014_id,
+shell_gene_015,,hypothetical protein,4,4,1,NA,300,900,600,shell_gene_015_id,shell_gene_015_id,,,shell_gene_015_id,shell_gene_015_id,,
+shell_gene_016,,metabolic enzyme,4,4,1,NA,300,900,600,,shell_gene_016_id,,shell_gene_016_id,,shell_gene_016_id,,shell_gene_016_id
+shell_gene_017,,membrane protein,4,4,1,NA,300,900,600,,shell_gene_017_id,,shell_gene_017_id,,shell_gene_017_id,,shell_gene_017_id
+shell_gene_018,,membrane protein,4,4,1,NA,300,900,600,,,shell_gene_018_id,shell_gene_018_id,,,shell_gene_018_id,shell_gene_018_id
+shell_gene_019,,metabolic enzyme,4,4,1,NA,300,900,600,shell_gene_019_id,shell_gene_019_id,,,shell_gene_019_id,shell_gene_019_id,,
+shell_gene_020,,membrane protein,4,4,1,NA,300,900,600,,shell_gene_020_id,,shell_gene_020_id,,shell_gene_020_id,,shell_gene_020_id

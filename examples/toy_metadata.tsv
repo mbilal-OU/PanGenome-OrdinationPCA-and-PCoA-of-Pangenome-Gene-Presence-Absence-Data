@@ -1,0 +1,9 @@
+genome	species	genus	family	source	habitat	clade
+Genome_1	Example species	ExampleGenus	ExampleFamily	soil	toy_environment	Clade_A
+Genome_2	Example species	ExampleGenus	ExampleFamily	soil	toy_environment	Clade_A
+Genome_3	Example species	ExampleGenus	ExampleFamily	soil	toy_environment	Clade_A
+Genome_4	Example species	ExampleGenus	ExampleFamily	soil	toy_environment	Clade_A
+Genome_5	Example species	ExampleGenus	ExampleFamily	soil	toy_environment	Clade_A
+Genome_6	Example species	ExampleGenus	ExampleFamily	soil	toy_environment	Clade_A
+Genome_7	Example species	ExampleGenus	ExampleFamily	water	toy_environment	Clade_B
+Genome_8	Example species	ExampleGenus	ExampleFamily	water	toy_environment	Clade_B

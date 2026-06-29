@@ -1,0 +1,18 @@
+name: Toy workflow test
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          environment-file: environment.yml
+          activate-environment: roarypanpca
+          auto-activate-base: false
+      - shell: bash -l {0}
+        run: |
+          conda activate roarypanpca
+          bash tests/test_toy_example.sh

@@ -1,0 +1,11 @@
+name: roarypanpca
+channels:
+  - conda-forge
+dependencies:
+  - r-base>=4.3
+  - r-data.table
+  - r-tidyverse
+  - r-ggrepel
+  - r-vegan
+  - python>=3.10
+  - pandas

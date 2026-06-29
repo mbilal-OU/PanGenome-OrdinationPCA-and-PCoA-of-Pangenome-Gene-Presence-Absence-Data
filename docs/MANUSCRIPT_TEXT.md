@@ -1,0 +1,9 @@
+# Manuscript Text
+
+## Methods
+
+Pangenome principal component analysis was performed using Roary gene presence/absence output. The `gene_presence_absence.Rtab` file was used as the input matrix because it encodes gene-cluster presence and absence across genomes in binary 0/1 form. The matrix was transposed so that genomes represented observations and Roary gene clusters represented variables. Gene clusters with zero variance across genomes were removed prior to analysis. PCA was performed on the centered binary matrix using R `prcomp`. PCA scores were merged with available genome metadata for visualization, and explained variance was calculated for each principal component. Gene-cluster loadings were extracted to identify clusters contributing most strongly to PC1, PC2, and PC3. These loadings were merged with Roary `gene_presence_absence.csv` annotations to provide functional interpretation of candidate genes driving PCA separation. As a complementary distance-based analysis for binary gene presence/absence data, Jaccard-distance PCoA was also performed.
+
+## Results
+
+Roary-based pangenome PCA summarized major axes of gene-content variation across the analyzed genomes. After removal of zero-variance gene clusters, PCA revealed the dominant structure of accessory genome variation and identified genome groups or outliers in gene-content space. The highest-loading gene clusters on PC1, PC2, and PC3 were extracted and annotated, allowing the genes contributing most strongly to the observed separation to be examined. These genes should be interpreted as candidate drivers of gene-content separation rather than direct evidence of adaptation or phenotype. Integration of sample metadata, when available, enables evaluation of whether PCA separation is associated with taxonomy, source, habitat, host, geography, phenotype, or other biological variables.
