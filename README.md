@@ -329,3 +329,32 @@ Bilal M. PanGenome-Ordination: A Roary-Based Workflow for Interpretable PCA of P
 ```
 
 Also cite Roary and any packages used in your analysis.
+
+---
+
+## Visual Concept
+
+![PanGenome-Ordination concept](docs/assets/pangenome_ordination_concept.svg)
+
+**PanGenome-Ordination** starts from a binary pangenome gene presence/absence matrix and uses ordination methods such as PCA and Jaccard-distance PCoA to reveal genome-level structure. Pangenome core/accessory/cloud summaries describe how frequently genes occur, while ordination shows how genomes are arranged based on shared and variable gene content.
+
+---
+
+## Example Output Figures
+
+### PCA of pangenome gene presence/absence data
+
+![Labeled PCA plot](docs/assets/PCA_labeled_genomes.png)
+
+### PCA explained variance
+
+![PCA scree plot](docs/assets/PCA_scree_plot.png)
+
+### Metadata-colored PCA
+
+![PCA colored by species](docs/assets/PCA_species.png)
+
+### Jaccard-distance PCoA
+
+![Jaccard PCoA](docs/assets/Jaccard_PCoA_species.png)
+
