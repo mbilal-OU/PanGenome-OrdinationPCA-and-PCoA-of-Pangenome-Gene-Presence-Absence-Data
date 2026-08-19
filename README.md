@@ -1,6 +1,6 @@
-# PanOrd — Pangenome Ordination Workbench
+# PanOrd: Pangenome Ordination Workbench
 
-[![Toy workflow test](https://github.com/mbilal-OU/PanGenome-OrdinationPCA-and-PCoA-of-Pangenome-Gene-Presence-Absence-Data/actions/workflows/test.yml/badge.svg)](https://github.com/mbilal-OU/PanGenome-OrdinationPCA-and-PCoA-of-Pangenome-Gene-Presence-Absence-Data/actions/workflows/test.yml)
+[![Toy workflow test](https://github.com/mbilal-OU/PanOrd/actions/workflows/test.yml/badge.svg)](https://github.com/mbilal-OU/PanOrd/actions/workflows/test.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![R](https://img.shields.io/badge/R-4.x-276DC3)]()
 [![Input](https://img.shields.io/badge/Input-Roary%20presence%2Fabsence-orange)]()
@@ -67,7 +67,7 @@ Which gene clusters contribute to a major separation axis?
 Do PCA and Jaccard PCoA tell a similar structural story?
 ```
 
-A pangenome can contain thousands of accessory clusters yet still have little organized genome-level structure—or it can contain a strong block of accessory variation separating a subset of genomes. Ordination distinguishes those situations.
+A pangenome can contain thousands of accessory clusters yet still have little organized genome-level structure. It can also contain a strong block of accessory variation that separates a subset of genomes. Ordination distinguishes those situations.
 
 ---
 
@@ -124,8 +124,8 @@ The `.Rtab` file provides the binary matrix. `gene_presence_absence.csv` is used
 ### Installation
 
 ```bash
-git clone https://github.com/mbilal-OU/PanGenome-OrdinationPCA-and-PCoA-of-Pangenome-Gene-Presence-Absence-Data.git
-cd PanGenome-OrdinationPCA-and-PCoA-of-Pangenome-Gene-Presence-Absence-Data
+git clone https://github.com/mbilal-OU/PanOrd.git
+cd PanOrd
 
 conda env create -f environment.yml
 conda activate panord
@@ -178,16 +178,16 @@ Roary presence/absence
 
 PanOrd encourages interpretation in four steps rather than jumping from a scatter plot directly to biology.
 
-**1. Geometry — describe what is visible.**  
+**1. Geometry: describe what is visible.**  
 Are there clusters, gradients, overlaps or outliers? How much variance do the displayed PCA axes capture?
 
-**2. Metadata — ask what the geometry aligns with.**  
+**2. Metadata: ask what the geometry aligns with.**  
 Color points by species, source, habitat, geography, host, clade, phenotype or other justified metadata. Visual correspondence is exploratory; it is not a formal association test.
 
-**3. Features — trace PCA separation to gene clusters.**  
+**3. Features: trace PCA separation to gene clusters.**  
 Inspect high-magnitude loadings and the presence/absence pattern of top clusters. Check whether many high-loading genes share the same distribution pattern, which can indicate a linked accessory block or correlated gene-content event.
 
-**4. Biology — validate the hypothesis independently.**  
+**4. Biology: validate the hypothesis independently.**  
 Functional annotation, genomic context, phylogeny, population structure, mobile-element analysis, phenotype data or formal association testing may be needed before making causal or adaptive claims.
 
 ---
