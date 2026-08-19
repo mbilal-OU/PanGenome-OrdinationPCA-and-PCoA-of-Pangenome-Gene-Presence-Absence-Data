@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="920" viewBox="0 0 1600 920" role="img" aria-labelledby="title desc">
+  <title id="title">PanOrd pangenome ordination map</title>
+  <desc id="desc">Conceptual figure showing a binary pangenome matrix viewed through PCA and Jaccard PCoA, simulated genome clusters, PCA loadings, and an interpretation ladder.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8fbff"/><stop offset="1" stop-color="#fbfaf7"/></linearGradient>
+    <linearGradient id="head" x1="0" x2="1"><stop offset="0" stop-color="#161f4d"/><stop offset="1" stop-color="#5b3fa3"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#111827" flood-opacity="0.10"/></filter>
+    <style>
+      .t{font-family:system-ui,-apple-system,Segoe UI,sans-serif;fill:#17213f}
+      .title{font-size:50px;font-weight:760}
+      .sub{font-size:21px;fill:#e6e9ff}
+      .h{font-size:26px;font-weight:730}
+      .b{font-size:18px;fill:#42506f}
+      .s{font-size:15px;fill:#60708f}
+      .axis{stroke:#68758d;stroke-width:2}
+      .grid{stroke:#e3e8f1;stroke-width:1}
+      .dash{stroke-dasharray:8 7}
+    </style>
+  </defs>
+
+  <rect width="1600" height="920" rx="28" fill="url(#bg)"/>
+  <rect x="38" y="34" width="1524" height="116" rx="28" fill="url(#head)"/>
+  <circle cx="106" cy="92" r="39" fill="#ffffff" opacity="0.96"/>
+  <circle cx="96" cy="87" r="6" fill="#7158b6"/><circle cx="116" cy="72" r="6" fill="#1f78b4"/><circle cx="123" cy="101" r="6" fill="#d38c22"/><circle cx="88" cy="111" r="6" fill="#2f9b77"/>
+  <path d="M96 87 L116 72 L123 101 L88 111 Z" fill="none" stroke="#27345f" stroke-width="3"/>
+  <text x="170" y="92" class="t title">PanOrd</text>
+  <text x="171" y="124" class="t sub">Pangenome Ordination Workbench · same genomes, two complementary geometric lenses</text>
+
+  <!-- input matrix -->
+  <g filter="url(#shadow)"><rect x="58" y="194" width="340" height="420" rx="24" fill="#ffffff" stroke="#d9e1ee" stroke-width="2"/></g>
+  <text x="88" y="238" class="t h">Binary pangenome matrix</text>
+  <text x="88" y="268" class="t b">gene clusters × genomes</text>
+  <text x="88" y="294" class="t s">1 = present · 0 = absent</text>
+  <text x="142" y="337" class="t s">G1</text><text x="186" y="337" class="t s">G2</text><text x="230" y="337" class="t s">G3</text><text x="274" y="337" class="t s">G4</text><text x="318" y="337" class="t s">G5</text>
+  <g transform="translate(98,354)">
+    <rect x="0" y="0" width="250" height="190" rx="8" fill="#f7f9fc" stroke="#cbd6e5"/>
+    <g fill="#5b3fa3">
+      <rect x="44" y="10" width="34" height="26" rx="4"/><rect x="132" y="10" width="34" height="26" rx="4"/><rect x="176" y="10" width="34" height="26" rx="4"/>
+      <rect x="88" y="48" width="34" height="26" rx="4"/><rect x="132" y="48" width="34" height="26" rx="4"/><rect x="220" y="48" width="20" height="26" rx="4"/>
+      <rect x="44" y="86" width="34" height="26" rx="4"/><rect x="88" y="86" width="34" height="26" rx="4"/><rect x="176" y="86" width="34" height="26" rx="4"/>
+      <rect x="132" y="124" width="34" height="26" rx="4"/><rect x="176" y="124" width="34" height="26" rx="4"/>
+      <rect x="44" y="162" width="34" height="18" rx="4"/><rect x="176" y="162" width="34" height="18" rx="4"/><rect x="220" y="162" width="20" height="18" rx="4"/>
+    </g>
+    <g fill="#e6ebf3"><rect x="88" y="10" width="34" height="26" rx="4"/><rect x="220" y="10" width="20" height="26" rx="4"/><rect x="44" y="48" width="34" height="26" rx="4"/><rect x="176" y="48" width="34" height="26" rx="4"/><rect x="132" y="86" width="34" height="26" rx="4"/><rect x="220" y="86" width="20" height="26" rx="4"/><rect x="44" y="124" width="34" height="26" rx="4"/><rect x="88" y="124" width="34" height="26" rx="4"/><rect x="220" y="124" width="20" height="26" rx="4"/><rect x="88" y="162" width="34" height="18" rx="4"/><rect x="132" y="162" width="34" height="18" rx="4"/></g>
+    <text x="-30" y="29" class="t s">GC1</text><text x="-30" y="67" class="t s">GC2</text><text x="-30" y="105" class="t s">GC3</text><text x="-30" y="143" class="t s">GC4</text><text x="-30" y="178" class="t s">GCn</text>
+  </g>
+  <text x="88" y="582" class="t s">Zero-variance clusters are removed before PCA.</text>
+
+  <!-- central idea -->
+  <text x="455" y="208" class="t h">One dataset, two views</text>
+  <path d="M414 399 C470 399 486 322 548 322" fill="none" stroke="#5b3fa3" stroke-width="5"/>
+  <path d="M414 421 C470 421 486 548 548 548" fill="none" stroke="#178a87" stroke-width="5"/>
+
+  <!-- PCA card -->
+  <g filter="url(#shadow)"><rect x="548" y="228" width="404" height="270" rx="24" fill="#f7f3ff" stroke="#cfc2ef" stroke-width="2"/></g>
+  <text x="578" y="268" class="t h" fill="#5b3fa3">PCA · feature-space lens</text>
+  <text x="578" y="300" class="t b">Centered 0/1 gene variables</text>
+  <text x="578" y="328" class="t b">→ axes maximizing variance</text>
+  <line x1="603" y1="445" x2="603" y2="354" class="axis"/><line x1="603" y1="445" x2="900" y2="445" class="axis"/>
+  <line x1="625" y1="445" x2="690" y2="371" stroke="#5b3fa3" stroke-width="4"/><polygon points="690,371 678,377 685,388" fill="#5b3fa3"/>
+  <line x1="625" y1="445" x2="774" y2="405" stroke="#a467c7" stroke-width="4"/><polygon points="774,405 760,401 764,414" fill="#a467c7"/>
+  <text x="697" y="366" class="t s">PC1 loading direction</text>
+  <text x="781" y="404" class="t s">gene loadings</text>
+  <text x="578" y="478" class="t s">Strength: connects genome separation back to candidate gene clusters.</text>
+
+  <!-- PCoA card -->
+  <g filter="url(#shadow)"><rect x="548" y="522" width="404" height="270" rx="24" fill="#eefafa" stroke="#b5dddd" stroke-width="2"/></g>
+  <text x="578" y="562" class="t h" fill="#177e7b">Jaccard PCoA · distance lens</text>
+  <text x="578" y="594" class="t b">Genome-to-genome Jaccard dissimilarity</text>
+  <text x="578" y="622" class="t b">→ axes preserving distance structure</text>
+  <g transform="translate(602,654)">
+    <circle cx="0" cy="0" r="10" fill="#1f78b4"/><circle cx="73" cy="18" r="10" fill="#2f9b77"/><circle cx="143" cy="-8" r="10" fill="#d38c22"/>
+    <path d="M8 2 Q38 -26 67 15" fill="none" stroke="#7d8aa0" stroke-width="3" class="dash"/>
+    <path d="M82 15 Q108 38 135 -4" fill="none" stroke="#7d8aa0" stroke-width="3" class="dash"/>
+    <text x="14" y="55" class="t s">joint absences do not create similarity</text>
+  </g>
+  <text x="578" y="766" class="t s">Strength: a binary-distance view complementary to PCA.</text>
+
+  <!-- simulated landscape -->
+  <g filter="url(#shadow)"><rect x="996" y="194" width="546" height="598" rx="24" fill="#ffffff" stroke="#d7deea" stroke-width="2"/></g>
+  <text x="1028" y="238" class="t h">Simulated genome landscape</text>
+  <text x="1028" y="268" class="t s">Illustrative points only · three planted accessory-gene groups + one outlier</text>
+  <g transform="translate(1050,306)">
+    <line x1="0" y1="394" x2="445" y2="394" class="axis"/><line x1="0" y1="394" x2="0" y2="0" class="axis"/>
+    <g class="grid"><line x1="0" y1="300" x2="445" y2="300"/><line x1="0" y1="205" x2="445" y2="205"/><line x1="0" y1="110" x2="445" y2="110"/><line x1="110" y1="0" x2="110" y2="394"/><line x1="220" y1="0" x2="220" y2="394"/><line x1="330" y1="0" x2="330" y2="394"/></g>
+    <ellipse cx="98" cy="118" rx="78" ry="63" fill="#dceeff" opacity="0.55" stroke="#1f78b4" stroke-width="2" class="dash"/>
+    <ellipse cx="280" cy="114" rx="79" ry="65" fill="#e4f5e9" opacity="0.65" stroke="#2f9b77" stroke-width="2" class="dash"/>
+    <ellipse cx="188" cy="298" rx="86" ry="62" fill="#fff0cf" opacity="0.7" stroke="#d38c22" stroke-width="2" class="dash"/>
+    <g fill="#1f78b4"><circle cx="63" cy="93" r="10"/><circle cx="89" cy="128" r="10"/><circle cx="116" cy="101" r="10"/><circle cx="132" cy="143" r="10"/><circle cx="78" cy="155" r="10"/><circle cx="101" cy="76" r="10"/></g>
+    <g fill="#2f9b77"><circle cx="247" cy="95" r="10"/><circle cx="273" cy="132" r="10"/><circle cx="302" cy="94" r="10"/><circle cx="320" cy="137" r="10"/><circle cx="286" cy="70" r="10"/><circle cx="251" cy="151" r="10"/></g>
+    <g fill="#d38c22"><circle cx="149" cy="284" r="10"/><circle cx="178" cy="321" r="10"/><circle cx="205" cy="275" r="10"/><circle cx="231" cy="315" r="10"/><circle cx="187" cy="252" r="10"/></g>
+    <circle cx="386" cy="266" r="13" fill="#c94e57" stroke="#7d2630" stroke-width="3"/>
+    <path d="M364 243 L384 260" stroke="#c94e57" stroke-width="3"/><text x="294" y="236" class="t s" fill="#9f303b">designed outlier</text>
+    <text x="210" y="432" class="t b">Ordination axis 1</text><text x="-245" y="-24" transform="rotate(-90)" class="t b">Ordination axis 2</text>
+  </g>
+  <g transform="translate(1045,744)"><circle cx="0" cy="0" r="8" fill="#1f78b4"/><text x="15" y="6" class="t s">Group A</text><circle cx="95" cy="0" r="8" fill="#2f9b77"/><text x="110" y="6" class="t s">Group B</text><circle cx="190" cy="0" r="8" fill="#d38c22"/><text x="205" y="6" class="t s">Group C</text><circle cx="285" cy="0" r="9" fill="#c94e57"/><text x="300" y="6" class="t s">outlier</text></g>
+
+  <!-- interpretation strip -->
+  <rect x="58" y="828" width="1484" height="58" rx="19" fill="#202a55"/>
+  <text x="88" y="863" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="19" fill="#ffffff">Interpretation ladder:</text>
+  <text x="270" y="863" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="18" fill="#dfe5ff">geometry → metadata → loadings / gene blocks → independent biological validation</text>
+  <text x="1380" y="863" text-anchor="end" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="15" fill="#cbd3f4">ordination ≠ causation</text>
+</svg>
