@@ -1,19 +1,21 @@
 cff-version: 1.2.0
-title: "PanGenome-Ordination: A Roary-Based Workflow for Interpretable PCA of Pangenome Gene Presence/Absence Data"
-message: "If you use this workflow, please cite it."
+title: "PanOrd: Pangenome Ordination Workbench"
+message: "If you use PanOrd, please cite this software and the external methods/packages used in your analysis."
 type: software
 authors:
   - family-names: Bilal
     given-names: Muhammad
-repository-code: "https://github.com/mbilal-OU/PanGenome-Ordination"
+repository-code: "https://github.com/mbilal-OU/PanGenome-OrdinationPCA-and-PCoA-of-Pangenome-Gene-Presence-Absence-Data"
 license: MIT
-version: 0.1.0
-date-released: 2026-06-29
+version: 0.2.0
+date-released: 2026-08-19
 keywords:
   - pangenome
-  - Roary
-  - PCA
   - microbial genomics
   - gene presence absence
-  - comparative genomics
+  - PCA
+  - PCoA
+  - Jaccard distance
+  - ordination
   - accessory genome
+  - Roary
