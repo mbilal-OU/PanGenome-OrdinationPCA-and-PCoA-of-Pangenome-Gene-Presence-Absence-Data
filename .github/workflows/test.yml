@@ -12,17 +12,17 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v3
         with:
           environment-file: environment.yml
-          activate-environment: roarypanpca
+          activate-environment: panord
           auto-activate-base: false
 
       - name: Test deterministic simulator
         shell: bash -l {0}
         run: |
-          conda activate roarypanpca
+          conda activate panord
           bash tests/test_simulator.sh
 
       - name: Run complete toy ordination workflow
         shell: bash -l {0}
         run: |
-          conda activate roarypanpca
+          conda activate panord
           bash tests/test_toy_example.sh
