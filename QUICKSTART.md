@@ -4,7 +4,7 @@
 
 ```bash
 conda env create -f environment.yml
-conda activate roarypanpca
+conda activate panord
 ```
 
 ## 2. Learn with the simulated demo
