@@ -1,4 +1,4 @@
-name: roarypanpca
+name: panord
 channels:
   - conda-forge
 dependencies:

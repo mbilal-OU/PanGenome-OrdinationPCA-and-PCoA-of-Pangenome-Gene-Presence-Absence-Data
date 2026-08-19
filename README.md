@@ -1,224 +1,255 @@
-# PanGenome-Ordination
+# PanOrd — Pangenome Ordination Workbench
 
-![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
-![R](https://img.shields.io/badge/R-4.x-blue)
-![Pangenomics](https://img.shields.io/badge/Topic-Pangenomics-green)
-![Ordination](https://img.shields.io/badge/Analysis-PCA%20%7C%20PCoA-purple)
+[![Toy workflow test](https://github.com/mbilal-OU/PanGenome-OrdinationPCA-and-PCoA-of-Pangenome-Gene-Presence-Absence-Data/actions/workflows/test.yml/badge.svg)](https://github.com/mbilal-OU/PanGenome-OrdinationPCA-and-PCoA-of-Pangenome-Gene-Presence-Absence-Data/actions/workflows/test.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![R](https://img.shields.io/badge/R-4.x-276DC3)]()
+[![Input](https://img.shields.io/badge/Input-Roary%20presence%2Fabsence-orange)]()
 
-> PCA and PCoA of pangenome gene presence/absence data.
+**PanOrd** is an interpretable ordination workbench for microbial pangenome gene presence/absence data. It combines **PCA**, **Jaccard-distance PCoA**, metadata-aware visualization, PCA loadings, and candidate gene-cluster extraction.
 
-**PanGenome-Ordination** is a reproducible workflow for ordination-based analysis of pangenome gene presence/absence matrices. It supports PCA, Jaccard-distance PCoA, metadata-based visualization, explained-variance analysis, annotated gene loadings, and extraction of candidate gene clusters driving genome separation.
-
----
-
-## Visual Concept
+> **Main question:** once a pangenome has been built, how are whole genomes arranged in gene-content space, and which gene clusters contribute to that structure?
 
 <p align="center">
-  <img src="docs/assets/pangenome_ordination_concept.svg" width="900">
+  <img src="docs/assets/panord_ordination_map.svg" alt="PanOrd conceptual map showing PCA, Jaccard PCoA, simulated genome clusters and interpretation" width="100%">
 </p>
 
-**PanGenome-Ordination** starts from a binary pangenome gene presence/absence matrix and uses ordination methods such as PCA and Jaccard-distance PCoA to reveal genome-level structure. Pangenome summaries describe how frequently genes occur, while ordination shows how genomes are arranged based on shared and variable gene content.
+**Start here:** [PCA vs PCoA concepts](docs/PCA_CONCEPTS.md) · [Simulated demo](docs/SIMULATED_DEMO.md) · [Interpretation guide](docs/INTERPRETATION_GUIDE.md) · [Quick start](QUICKSTART.md)
 
 ---
 
-## Why This Workflow Exists
+## Read the map before the method
 
-Pangenome tools can classify genes as core, accessory, shell, or cloud. That is useful, but it mainly describes gene frequency.
+A Roary presence/absence table is high-dimensional: each genome is described by hundreds or thousands of binary gene-cluster features. Ordination compresses that space into a few axes so the dominant patterns become visible.
 
-Ordination asks a different question:
+| Lens | Starts from | What it emphasizes | Why use it |
+|---|---|---|---|
+| **PCA** | genome × gene 0/1 matrix | directions of maximal variance | shows genome structure **and** gives gene loadings that can be traced back to candidate clusters |
+| **Jaccard PCoA** | genome × genome Jaccard dissimilarity | pairwise gene-content dissimilarity | treats joint absences as uninformative and provides a complementary distance-based view of binary data |
+| **PCA loadings** | PCA rotation coefficients | gene clusters associated with each PC | connects a visible separation pattern back to candidate gene-content features |
 
-**How are genomes arranged based on thousands of gene presence/absence features?**
-
-| Analysis | Main question | Output |
-|---|---|---|
-| Pangenome summary | How frequent is each gene cluster? | Core/accessory/cloud categories |
-| PCA / PCoA | How are genomes structured by gene-content variation? | Genome separation, outliers, clusters, candidate drivers |
+These methods are complementary. Agreement between PCA and Jaccard PCoA strengthens confidence that a visible grouping reflects broad gene-content structure rather than one particular geometry.
 
 ---
 
-## Core Workflow
+## What are the points, axes and loadings?
+
+**A point is one genome.** Genomes close together have similar gene-content profiles under the geometry used by that ordination; genomes far apart differ more strongly.
+
+**PC1 / PC2 are not genes.** They are new synthetic axes formed from combinations of gene-presence variables. PC1 captures the largest variance direction in the centered matrix, PC2 the largest remaining orthogonal direction, and so on.
+
+**Explained variance tells how much of the matrix variation is represented by an axis.** A large PC1 percentage means one dominant gene-content contrast exists; a small percentage means variation is distributed across more dimensions.
+
+**A loading belongs to a gene cluster, not a genome.** Large positive or negative loadings identify clusters strongly associated with movement along that PC. The sign only gives direction on an arbitrary axis; the magnitude is usually the more useful first screen.
+
+**PCoA axes summarize distances.** With Jaccard dissimilarity, two genomes are compared using shared presences relative to genes present in either genome; genes absent from both do not increase similarity.
+
+See [docs/PCA_CONCEPTS.md](docs/PCA_CONCEPTS.md) for the detailed explanation and methodological caveats.
+
+---
+
+## Why use ordination after Roary?
+
+Roary summary statistics are mostly **gene-centered**:
 
 ```text
-pangenome gene presence/absence matrix
-        ↓
-genomes = samples
-gene clusters = features
-        ↓
-remove zero-variance genes
-        ↓
-PCA and Jaccard PCoA
-        ↓
-ordination plots
-        ↓
-PCA loadings
-        ↓
-annotated candidate genes
-        ↓
-biological interpretation
+How many clusters are core?
+How many are shell/accessory?
+How many are rare/cloud?
 ```
 
----
+PanOrd is **genome-centered**:
 
-## Example Output Figures
+```text
+Do genomes form gene-content groups?
+Which genomes are outliers?
+Does metadata align with the ordination?
+Which gene clusters contribute to a major separation axis?
+Do PCA and Jaccard PCoA tell a similar structural story?
+```
 
-### PCA of pangenome gene presence/absence data
-
-<p align="center">
-  <img src="docs/assets/PCA_labeled_genomes.png" width="750">
-</p>
-
-### PCA explained variance
-
-<p align="center">
-  <img src="docs/assets/PCA_scree_plot.png" width="700">
-</p>
-
-### Metadata-colored PCA
-
-<p align="center">
-  <img src="docs/assets/PCA_species.png" width="700">
-</p>
-
-### Jaccard-distance PCoA
-
-<p align="center">
-  <img src="docs/assets/Jaccard_PCoA_species.png" width="700">
-</p>
+A pangenome can contain thousands of accessory clusters yet still have little organized genome-level structure—or it can contain a strong block of accessory variation separating a subset of genomes. Ordination distinguishes those situations.
 
 ---
 
-## Input Files
+## Try the simulated landscape first
 
-Current implementation is optimized for Roary-style output.
+PanOrd includes a deterministic simulator so users can learn the method on data where the underlying structure is known.
 
-Place input files here:
+The demo creates:
+
+- 18 synthetic genomes;
+- three labeled genome groups;
+- shared core genes;
+- group-enriched accessory blocks;
+- background accessory variation;
+- one deliberately perturbed outlier genome.
+
+```bash
+python scripts/00_generate_simulated_pangenome.py \
+  --outdir examples/simulated_demo \
+  --seed 42
+
+cp examples/simulated_demo/gene_presence_absence.Rtab data/roary/gene_presence_absence.Rtab
+cp examples/simulated_demo/gene_presence_absence.csv  data/roary/gene_presence_absence.csv
+cp examples/simulated_demo/metadata.tsv               data/metadata/metadata.tsv
+
+bash scripts/run_pipeline.sh
+```
+
+Because the group-specific accessory blocks were planted intentionally, the simulated example lets you check whether PCA separates the groups, whether Jaccard PCoA recovers comparable structure, whether the designed outlier moves away from its group, and whether top loadings recover the planted candidate gene blocks.
+
+**All simulated points and gene patterns are explicitly synthetic and are not biological observations.**
+
+[Read the simulated-demo design and expected interpretation →](docs/SIMULATED_DEMO.md)
+
+---
+
+## Run with Roary output
+
+PanOrd currently expects the standard Roary-style files:
 
 ```text
 data/roary/gene_presence_absence.Rtab
 data/roary/gene_presence_absence.csv
 ```
 
-| File | Purpose |
-|---|---|
-| `gene_presence_absence.Rtab` | Main binary gene presence/absence matrix |
-| `gene_presence_absence.csv` | Annotation file used to annotate PCA loadings |
-| `data/metadata/metadata.tsv` | Optional metadata for coloring and interpretation |
+Optional sample metadata:
 
----
+```text
+data/metadata/metadata.tsv
+```
 
-## Installation
+The `.Rtab` file provides the binary matrix. `gene_presence_absence.csv` is used to attach annotations to high-loading gene clusters.
+
+### Installation
 
 ```bash
+git clone https://github.com/mbilal-OU/PanGenome-OrdinationPCA-and-PCoA-of-Pangenome-Gene-Presence-Absence-Data.git
+cd PanGenome-OrdinationPCA-and-PCoA-of-Pangenome-Gene-Presence-Absence-Data
+
 conda env create -f environment.yml
-conda activate roarypanpca
+conda activate panord
 ```
 
-Verify:
-
-```bash
-Rscript -e "library(data.table); library(tidyverse); library(ggrepel); library(vegan); cat('R packages OK\n')"
-python -c "import pandas as pd; print('Python OK')"
-```
-
----
-
-## Quick Start With Example Data
-
-```bash
-cp examples/toy_gene_presence_absence.Rtab data/roary/gene_presence_absence.Rtab
-cp examples/toy_gene_presence_absence.csv  data/roary/gene_presence_absence.csv
-cp examples/toy_metadata.tsv              data/metadata/metadata.tsv
-
-bash scripts/run_pipeline.sh
-```
-
----
-
-## Run With Your Own Roary Output
+### Minimal run
 
 ```bash
 cp /path/to/gene_presence_absence.Rtab data/roary/gene_presence_absence.Rtab
 cp /path/to/gene_presence_absence.csv  data/roary/gene_presence_absence.csv
-```
-
-Create taxonomy metadata if needed:
-
-```bash
-python scripts/01_make_taxonomy_metadata.py \
-  --rtab data/roary/gene_presence_absence.Rtab \
-  --species "Deinococcus radiodurans" \
-  --genus "Deinococcus" \
-  --family "Deinococcaceae" \
-  --order "Deinococcales" \
-  --class_name "Deinococci" \
-  --phylum "Deinococcota" \
-  --out data/metadata/metadata.tsv
-```
-
-Run:
-
-```bash
 bash scripts/run_pipeline.sh
 ```
 
+If metadata are absent, the workflow creates genome-only metadata. For meaningful colored plots, provide biological or technical metadata whose genome IDs exactly match the `.Rtab` header.
+
 ---
 
-## Main Outputs
+## What the workflow produces
 
-| Output | Meaning |
+```text
+Roary presence/absence
+        │
+        ├── matrix preparation + zero-variance removal
+        │
+        ├── PCA
+        │    ├── genome scores
+        │    ├── explained variance
+        │    └── annotated gene loadings
+        │
+        └── Jaccard dissimilarity
+             └── corrected PCoA + eigenvalue diagnostics
+```
+
+| Output | Use |
 |---|---|
-| `results/qc/input_qc_report.txt` | Input file checks |
-| `results/matrix/pca_matrix_genomes_by_genes.tsv` | Transposed genome-by-gene matrix |
-| `results/matrix/gene_frequency_summary.tsv` | Gene frequency and pangenome class |
-| `results/pca/pca_scores_metadata.tsv` | PCA genome coordinates plus metadata |
-| `results/pca/pca_explained_variance.tsv` | Explained variance per PC |
-| `results/loadings/pca_loadings_annotated.tsv` | Gene loadings merged with annotations |
-| `results/loadings/top_PC1_loadings_annotated.tsv` | Top candidate genes contributing to PC1 |
-| `results/pcoa/jaccard_pcoa_scores_metadata.tsv` | Jaccard-distance PCoA scores |
+| `results/matrix/pca_matrix_genomes_by_genes.tsv` | variable genome × gene matrix used for ordination |
+| `results/matrix/gene_frequency_summary.tsv` | gene prevalence and frequency-class summary |
+| `results/pca/pca_scores_metadata.tsv` | genome coordinates on PCA axes |
+| `results/pca/pca_explained_variance.tsv` | variance represented by each PC |
+| `results/loadings/pca_loadings_annotated.tsv` | gene loadings merged with Roary annotations |
+| `results/loadings/top_PC1_loadings_annotated.tsv` | strongest candidate contributors to PC1 |
+| `results/pcoa/jaccard_pcoa_scores_metadata.tsv` | Jaccard PCoA genome coordinates |
+| `results/pcoa/jaccard_pcoa_eigenvalues.tsv` | PCoA eigenvalues and explained percentages |
+| `results/pcoa/jaccard_pcoa_diagnostics.tsv` | additive-correction and distance diagnostics |
+| `figures/` | PCA, scree, metadata-colored and Jaccard PCoA figures |
 
 ---
 
-## Interpretation
+## The interpretation ladder
 
-High-loading genes are **candidate drivers of gene-content separation**.
+PanOrd encourages interpretation in four steps rather than jumping from a scatter plot directly to biology.
 
-Do not overclaim:
+**1. Geometry — describe what is visible.**  
+Are there clusters, gradients, overlaps or outliers? How much variance do the displayed PCA axes capture?
 
-```text
-PCA alone does not prove adaptation, virulence, selection, or phenotype.
-```
+**2. Metadata — ask what the geometry aligns with.**  
+Color points by species, source, habitat, geography, host, clade, phenotype or other justified metadata. Visual correspondence is exploratory; it is not a formal association test.
 
-Instead, use:
+**3. Features — trace PCA separation to gene clusters.**  
+Inspect high-magnitude loadings and the presence/absence pattern of top clusters. Check whether many high-loading genes share the same distribution pattern, which can indicate a linked accessory block or correlated gene-content event.
 
-```text
-PCA identifies candidate accessory gene clusters contributing to genome separation.
-```
+**4. Biology — validate the hypothesis independently.**  
+Functional annotation, genomic context, phylogeny, population structure, mobile-element analysis, phenotype data or formal association testing may be needed before making causal or adaptive claims.
+
+---
+
+## PCA and binary pangenome data: an important detail
+
+PanOrd uses centered **unscaled PCA** by default (`center = TRUE`, `scale = FALSE`). For a binary variable with prevalence *p*, variance is *p(1-p)*, so intermediate-frequency clusters naturally contribute more variance than very rare or nearly universal clusters.
+
+This is intentional and should be understood when interpreting loadings. Standardizing every binary gene to unit variance can strongly amplify rare features; PanOrd therefore does not do that silently.
+
+Jaccard PCoA provides a useful complementary view because it starts from an asymmetric binary dissimilarity in which shared absences do not count as evidence of similarity.
 
 ---
 
-## Example: Deinococcus radiodurans
+## Scientific guardrails
 
-In a demonstration analysis of 16 *Deinococcus radiodurans* genomes:
-
-```text
-Original Roary gene clusters: 4,272
-Variable gene clusters used for PCA: 2,048
-Zero-variance gene clusters removed: 2,224
-PC1 explained variance: 55.30%
-PC2 explained variance: 9.11%
-PC3 explained variance: 7.52%
-```
-
-Top PC1-loading genes included phage/mobile-element-associated and accessory genes, including `tnpB`, phage terminase, transporters, kinases, radical SAM proteins, and hypothetical proteins. Several top PC1 genes were present in 14 genomes and absent in two genomes, suggesting that PC1 captured a major accessory gene-content pattern.
+- **Ordination is exploratory.** Separation does not prove adaptation, phenotype, virulence, selection, or ecological causation.
+- **High loadings are candidate contributors**, not automatically causal genes.
+- **Closely linked genes can share nearly identical loadings**, so a top-loading list may represent one genomic island, prophage, plasmid or other correlated block rather than many independent effects.
+- **Population structure can explain apparent metadata separation.** Compare ordination with phylogeny or lineage assignments where appropriate.
+- **Assembly and annotation artifacts can create gene-content outliers.** Inspect genome QC, gene counts and unusual accessory burdens before biological interpretation.
+- **Jaccard PCoA can be non-Euclidean.** The workflow now applies an additive correction before ordination and records the correction/eigenvalue diagnostics rather than hiding this issue.
 
 ---
+
+## Existing biological demonstration
+
+The repository also retains the existing *Deinococcus radiodurans* demonstration. In that analysis, 4,272 Roary gene clusters were reduced to 2,048 variable clusters for PCA, with PC1 explaining 55.30% of the variance. High PC1 loadings included several mobile-element/phage-associated and accessory annotations.
+
+Those results should remain framed as an **exploratory gene-content pattern**. The simulated tutorial is separate and exists only to teach how a known planted structure behaves under PCA and Jaccard PCoA.
+
+---
+
+## Repository map
+
+```text
+PanOrd/
+├── README.md
+├── QUICKSTART.md
+├── environment.yml
+├── scripts/
+│   ├── 00_generate_simulated_pangenome.py
+│   ├── 00_check_inputs.sh
+│   ├── 02_prepare_matrix.R
+│   ├── 03_run_pca.R
+│   ├── 04_extract_loadings.R
+│   ├── 05_make_plots.R
+│   ├── 09_run_jaccard_pcoa.R
+│   └── run_pipeline.sh
+├── examples/
+├── docs/
+│   ├── PCA_CONCEPTS.md
+│   ├── SIMULATED_DEMO.md
+│   ├── INTERPRETATION_GUIDE.md
+│   └── assets/
+└── tests/
+```
 
 ## Citation
 
-If you use this workflow, please cite:
+Citation metadata are provided in [`CITATION.cff`](CITATION.cff). Please also cite Roary and the statistical/R packages used in analyses derived from this workflow.
 
-```text
-Bilal M. PanGenome-Ordination: PCA and PCoA of Pangenome Gene Presence/Absence Data. GitHub. 2026.
-```
+## License
 
-Also cite Roary and any R packages used in your analysis.
+MIT. See [`LICENSE`](LICENSE).

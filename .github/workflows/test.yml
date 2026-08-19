@@ -1,7 +1,9 @@
-name: Toy workflow test
+name: PanOrd tests
+
 on:
   push:
   pull_request:
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -10,9 +12,17 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v3
         with:
           environment-file: environment.yml
-          activate-environment: roarypanpca
+          activate-environment: panord
           auto-activate-base: false
-      - shell: bash -l {0}
+
+      - name: Test deterministic simulator
+        shell: bash -l {0}
         run: |
-          conda activate roarypanpca
+          conda activate panord
+          bash tests/test_simulator.sh
+
+      - name: Run complete toy ordination workflow
+        shell: bash -l {0}
+        run: |
+          conda activate panord
           bash tests/test_toy_example.sh
