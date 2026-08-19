@@ -128,7 +128,7 @@ git clone https://github.com/mbilal-OU/PanGenome-OrdinationPCA-and-PCoA-of-Pange
 cd PanGenome-OrdinationPCA-and-PCoA-of-Pangenome-Gene-Presence-Absence-Data
 
 conda env create -f environment.yml
-conda activate roarypanpca
+conda activate panord
 ```
 
 ### Minimal run
