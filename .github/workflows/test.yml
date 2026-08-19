@@ -1,7 +1,9 @@
-name: Toy workflow test
+name: PanOrd tests
+
 on:
   push:
   pull_request:
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -12,7 +14,15 @@ jobs:
           environment-file: environment.yml
           activate-environment: roarypanpca
           auto-activate-base: false
-      - shell: bash -l {0}
+
+      - name: Test deterministic simulator
+        shell: bash -l {0}
+        run: |
+          conda activate roarypanpca
+          bash tests/test_simulator.sh
+
+      - name: Run complete toy ordination workflow
+        shell: bash -l {0}
         run: |
           conda activate roarypanpca
           bash tests/test_toy_example.sh
