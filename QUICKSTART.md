@@ -55,6 +55,8 @@ Optional metadata:
 cp /path/to/metadata.tsv data/metadata/metadata.tsv
 ```
 
+The metadata table should be tab-delimited with a `genome` column. Values in `genome` must exactly match the genome IDs in the `.Rtab` header; additional columns such as species, source, habitat, or clade can then be used for plotting and interpretation. See [`examples/toy_metadata.tsv`](examples/toy_metadata.tsv) for a minimal example.
+
 Then:
 
 ```bash
